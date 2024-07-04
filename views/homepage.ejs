@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white lowercase ">
+    
+    <div class="nav md:h-[10vh]  bg-black md:py-[1.4vh] md:mt-[4vh] h-[12vh] py-[1.8vh] ">
+        <div class="navbar w-full h-full flex justify-between ">
+            <div class="logodiv w-[43%] md:w-[28%]  pl-[2vh] md:pl-0 h-full">
+                <img src='../images/sparkeyXLogo.svg' alt="Logo" class="w-full h-full object-contain">
+            </div>
+            <div class="  md:pr-[9vh] mt-[3vh] mr-[1vh]">
+                <a href="/post/create/<%= email  %>" class="md:text-2xl text-sm  md:mt-[2vh]  font-semibold poppins-semibold md:px-[3vh] md:py-[3vh] px-[1.4vh] py-[1.4vh] bg-slate-800 rounded-full">I have a idea</a>
+            </div>
+        </div>
+    </div>
+    <div class="w-full px-[2vh] mt-[6vh]">
+        <div class="flex flex-col md:flex-row flex-wrap gap-5">
+        <% if (posts == null) { %>
+            <h1 class="text-white text-2xl">Ideas Are on the way</h1>
+        <% } else { %>
+         <% posts.forEach(post=>{ %>
+            <div class="card">
+                <div class="maincard md:w-[80vh] w-[40vh] overflow-hidden   bg-slate-500/50 px-[2vh] py-[1vh] rounded-2xl flex flex-col">
+                   <div class="divtop flex align-middle ">
+                      <div class="w-[6.5vh] h-[6.5vh] bg-white rounded-full overflow-hidden">
+                          <img src="https://images.unsplash.com/photo-1534294668821-28a3054f4256?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" class="w-full h-full object-cover" >
+                      </div>
+                      <h2 class="ml-[2vh] mt-[2vh] ">Unknown</h2>
+                   </div>
+                   <div class="divmiddle mt-[3vh] text-wrap">
+                      <h2 class="text-xl md:text-3xl text-wrap"><%= post.headline  %></h2>
+                      <h3 class="text-lg md:text-xl text-wrap mt-[2vh] pb-[3vh] text-slate-400"><%= post.description  %></h3>
+                   </div>
+                </div>
+              </div>
+          
+         <% }) %>
+         <% } %>
+
+        </div>
+    </div>
+</body>
+</html>
