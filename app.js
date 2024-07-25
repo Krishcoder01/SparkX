@@ -21,4 +21,4 @@ app.use('/post' ,postRoute)
 
 
 
-app.listen( 3000 ,()=>{console.log("server runnning")})
+app.listen( 3000 ,()=>{console.log("server runnning")})     

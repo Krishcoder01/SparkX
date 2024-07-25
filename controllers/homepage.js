@@ -60,6 +60,14 @@ async function userCheckHandler(req,res){
     }
   }
 
+  // async function newField (req , res){
+  //     await idea.updateMany(
+  //       { postLike: { $exists: false } }, // update only documents that don't have newField
+  //       { $set: { postLike : 0 } } // set newField to defaultValue
+  //     );
+  //     res.send('Update completed.');
+  // }
 
 
-module.exports={ homebannerController,createUserHandler , signupHandler ,loginHandler , userCheckHandler , homepageController}
+
+module.exports={ homebannerController,createUserHandler , signupHandler ,loginHandler , userCheckHandler , homepageController ,newField}

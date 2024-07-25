@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
 </head>
 <body class="bg-black text-white lowercase ">
     
@@ -28,7 +32,7 @@
         <% } else { %>
          <% posts.forEach(post=>{ %>
             <div class="card">
-                <div class="maincard md:w-[80vh] w-[40vh] overflow-hidden   bg-slate-500/50 px-[2vh] py-[1vh] rounded-2xl flex flex-col">
+                <div class="maincard md:w-[86vh] w-[40vh] overflow-hidden   bg-slate-500/50 px-[2vh] py-[1vh] rounded-2xl flex flex-col">
                    <div class="divtop flex align-middle ">
                       <div class="w-[6.5vh] h-[6.5vh] bg-white rounded-full overflow-hidden">
                           <img src="https://images.unsplash.com/photo-1534294668821-28a3054f4256?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" class="w-full h-full object-cover" >
@@ -37,7 +41,13 @@
                    </div>
                    <div class="divmiddle mt-[3vh] text-wrap">
                       <h2 class="text-xl md:text-3xl text-wrap"><%= post.headline  %></h2>
-                      <h3 class="text-lg md:text-xl text-wrap mt-[2vh] pb-[3vh] text-slate-400"><%= post.description  %></h3>
+                      <h3 class="text-lg md:text-xl text-wrap mt-[2vh] pb-[1vh] text-slate-400"><%= post.description  %></h3>
+                   </div>
+                   <div class="text-2xl flex flex-row gap-3">
+                      <a  id="likeButton-<%= post._id %>" data-url="/post/like/<%=post._id  %>/<%= email %>"><i class="heart ri-heart-3-line"></i> </a>
+                        <% if (post.postLike != 0) { %>
+                            <h2 class="text-xl"><%= post.postLike %></h2>
+                        <% } %>
                    </div>
                 </div>
               </div>
@@ -48,4 +58,6 @@
         </div>
     </div>
 </body>
+<script src="../js/index.js" ></script>
 </html>
+

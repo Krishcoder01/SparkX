@@ -12,11 +12,23 @@ async function createPost(req , res){
    let post = await idea.create({
     headline ,
     description,
-    user : Oneuser._id
+    user : Oneuser._id ,
+    postLike : 0
    })
    Oneuser.posts.push(post._id) 
    Oneuser.save()
    res.redirect(`/homepage/${user}`)
 }
 
-module.exports={postAdd , createPost}
+async function increaseLike(req , res){
+  let id = req.params.id ;
+  let email = req.params.email
+  console.log(id)
+  let post = await idea.findOne({_id:id})
+  console.log(post)
+  post.postLike = post.postLike + 1
+  post.save()
+  res.redirect(`/homepage/${email}`)
+}
+
+module.exports={postAdd , createPost , increaseLike}

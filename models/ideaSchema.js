@@ -20,7 +20,8 @@ let ideaSchema = mongoose.Schema({
         ref : "usery"
       },
       postLike : {
-        type : Number 
+        type : Number ,
+        default: 0
       }
     });
 
